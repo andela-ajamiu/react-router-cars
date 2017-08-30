@@ -10,6 +10,11 @@ const app = express();
 
 app.use(express.static(__dirname + '/public'));
 
+app.use((req, res, next) => {
+    console.log('host info', req.get('Host'), 'some url', req.url);
+    next();
+});
+
 app.get('*', function(req, res){
     res.sendFile(path.resolve(__dirname + '/public/index.html'))
 });
