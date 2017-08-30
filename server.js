@@ -15,6 +15,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/test', (req, res) => {
+    res.send('abeg work oooo');
+});
+
 app.get('*', function(req, res){
     res.sendFile(path.resolve(__dirname + '/public/index.html'))
 });
