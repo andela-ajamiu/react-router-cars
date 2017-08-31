@@ -11,9 +11,12 @@ const app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.use((req, res, next) => {
+    var ourHost = req.get('Host');
     console.log('host info', req.get('Host'), 'some url', req.url);
     next();
 });
+
+console.log('dem histtttt', ourHost);
 
 app.get('/test', (req, res) => {
     res.send('abeg work oooo');
