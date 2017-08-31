@@ -10,6 +10,8 @@ const app = express();
 
 app.use(express.static(__dirname + '/public'));
 
+var ourHost;
+
 app.use((req, res, next) => {
     var ourHost = req.get('Host');
     console.log('host info', req.get('Host'), 'some url', req.url);
